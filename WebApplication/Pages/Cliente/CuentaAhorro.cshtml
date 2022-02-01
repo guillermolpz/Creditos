@@ -1,0 +1,38 @@
+﻿@page
+@model WebApplication.Pages.Cliente.CuentaAhorroModel
+@{
+    ViewData["Title"] = "Cuenta de ahorro";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Cuenta de ahorro</h1>
+
+    <div id="divFormulario">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="oCliente.id_cliente" />
+            <div class="form-grup row">
+                <label class="col-sm-2 col-form-label" asp-for="oCuentaAhorro.cuenta">Número de cuenta</label>
+                <div class="row">
+                    <input class="form-control" asp-for="oCuentaAhorro.cuenta" />
+                </div>
+            </div>
+            <div class="form-grup row">
+                <label class="col-sm-2 col-form-label" asp-for="oCuentaAhorro.saldo_actual">Saldo</label>
+                <div class="row">
+                    <input class="form-control" asp-for="oCuentaAhorro.saldo_actual" />
+                </div>
+            </div>
+            <div class="form-grup row">
+                <div class="col-sm-10">
+                    <div class="col-sm-2">
+                        <input type="submit" value="Crear" />
+                    </div>
+                    <div class="col-sm-2">
+                        <a class="button3" asp-route-id="@Model.oCliente.id_cliente" asp-page="/Cliente/DetallesCliente">Cancelar</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

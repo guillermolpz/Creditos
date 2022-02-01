@@ -1,0 +1,44 @@
+﻿@page
+@model WebApplication.Pages.Cliente.TransaccionModel
+@{
+    ViewData["Title"] = "Transacciones";
+}
+
+<div id="formCliente">
+    <form method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="oCuentaAhorro.id_cuenta" />
+        <input type="hidden" asp-for="oCuentaAhorro.id_cliente" />
+        <input type="hidden" asp-for="oCuentaAhorro.saldo_actual" />
+        <div>
+            <div class="form-grup row">
+                <label class="col-sm-2 col-form-label" asp-for="oTransaccion.monto">Monto</label>
+                <div>
+                    <input class="form-control" asp-for="oTransaccion.monto" />
+                </div>
+                <span asp-validation-for="oTransaccion.monto" class="text-danger"></span>
+            </div>
+
+            <div class="form-grup row">
+                <label class="col-sm-2 col-form-label" asp-for="oTransaccion.tipo">Tipo de transaccion</label>
+                <div>
+                    <select class="form-control" name="tipo">
+                        <option value="1">Deposito</option>
+                        <option value="2">Retiro</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-grup row">
+                <div class="col-sm-10">
+                    <div class="col-sm-2">
+                        <input class="button3 btn" type="submit" value="Realizar" />
+                    </div>
+                    <div class="col-sm-2">
+                        <a class="button3" asp-route-id="@Model.oCuentaAhorro.id_cuenta" asp-page="/Cliente/GestionarCuenta">Cancelar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

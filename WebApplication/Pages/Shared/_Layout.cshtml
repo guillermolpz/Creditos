@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebApplication</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header class="main-header">
+        <a class="logo-header" href="/">
+            <span class="site-name">Sistema de creditos</span>
+        </a> <!-- / #logo-header -->
+
+        <nav class="nav1">
+            <partial name="_LoginPartial" />
+        </nav>
+    </header>
+
+    <!--<aside class="AppAside">
+            <nav class="nav2"></nav>
+    </aside>-->
+    <div class="divContentPage">
+        <main class="AppMain">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="main-footer">
+        <div>
+            &copy; 2022 - UI_SISTEMA_CREDITOS -
+        </div>
+    </footer>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

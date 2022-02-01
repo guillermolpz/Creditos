@@ -1,0 +1,47 @@
+﻿@page
+@model WebApplication.Pages.Cliente.GestionarCuentaModel
+@{
+}
+
+
+<div>
+    <h4>Numero de cuenta: @Model.oCuentaAhorro.cuenta</h4>
+    <h4>Saldo actual: @Model.oCuentaAhorro.saldo_actual</h4>
+</div>
+<div>
+    <div style="">
+        <a class="button3" asp-route-id="@Model.oCuentaAhorro.id_cuenta" asp-page="/Cliente/Transaccion">Hacer transaccion</a>
+    
+        <a class="button3" asp-route-id="@Model.oCuentaAhorro.id_cliente" asp-page="/Cliente/DetallesCliente">Ir a Cuentas</a>
+    </div>
+</div>
+<div>
+    <h3>Movimientos</h3>
+</div>
+<div>
+    @if (Model.oTransacciones.Count() > 0)
+    {
+        <table>
+            <caption>Cuentas registradas</caption>
+            <thead>
+                <tr>
+                    <th>Monto</th>
+                    <th>Tipo de transaccion</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.oTransacciones)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(m => item.monto)</td>
+                        <td>@Html.DisplayFor(m => item.tipo)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No tiene transacciones</p>
+    }
+</div>

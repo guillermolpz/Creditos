@@ -1,0 +1,42 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Historial de tranzacciones</h1>
+    <a asp-page="/Cliente/AltaCliente" class="button3">Registrar cliente</a>
+
+    @if (Model.oClientes.Count() > 0)
+    {
+        <table>
+            <caption>Registros de transacciones</caption>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Cliente</th>
+                    <th>Monto</th>
+                    <th>Accion</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.oClientes)
+                {
+                <tr>
+                    <td>@Html.DisplayFor(m => item.id_cliente)</td>
+                    <td>@Html.DisplayFor(m => item.nombre)</td>
+                    <td>@Html.DisplayFor(m => item.no_identificacion)</td>
+                    <td>
+                        <a asp-route-id="@item.id_cliente" asp-page="/Cliente/DetallesCliente">Información</a>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No hay datos</p>
+    }
+</div>

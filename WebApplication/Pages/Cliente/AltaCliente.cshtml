@@ -1,0 +1,50 @@
+﻿@page
+@model WebApplication.Pages.Cliente.AltaClienteModel
+@{
+    ViewData["Title"] = "Cliente";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Alta cliente</h1>
+    <div id="formCliente" class="containerForm">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div>
+                <div class="form-grup row">
+                    <div class="row">
+                        <div>
+                            <label asp-for="oCliente.nombre"></label>
+                        </div>
+                        <div>
+                            <input asp-for="oCliente.nombre" />
+                        </div>
+                        <span asp-validation-for="oCliente.nombre" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-grup">
+                    <div class="row">
+                        <div>
+                            <label asp-for="oCliente.no_identificacion"></label>
+                        </div>
+                        <div>
+                            <input asp-for="oCliente.no_identificacion" />
+                        </div>
+                        <span asp-validation-for="oCliente.no_identificacion" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-grup row">
+                    <div class="col-sm-10">
+                        <div class="col-sm-2">
+                            <input class="button3" type="submit" value="Crear" />
+                        </div>
+                        <div class="col-sm-2">
+                            <a class="button3" asp-page="/Index">Regresar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

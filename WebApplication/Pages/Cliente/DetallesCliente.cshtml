@@ -1,0 +1,55 @@
+﻿@page
+@model WebApplication.Pages.Cliente.DetallesClienteModel
+@{
+    ViewData["Title"] = "Informacion";
+}
+
+
+<div>
+    <h3>Cliete: @Model.oCliente.nombre</h3>
+</div>
+
+
+<!--<select name="cuentasId" asp-page-handler="" asp-items="Model.Options"></select>-->
+
+<div style="column-count:4">
+    <div style="">
+        <!--<a asp-action="irCuentaAhorro" >Crear cuenta</a>-->
+        <a class="button3" asp-route-id="@Model.oCliente.id_cliente" asp-page="/Cliente/CuentaAhorro">Crear cuenta</a>
+    </div>
+</div>
+<div>
+    <h3>Cuentas</h3>
+</div>
+<div>
+    @if (Model.oCuentaAhorro.Count() > 0)
+    {
+        <table>
+            <caption>Cuentas registradas</caption>
+            <thead>
+                <tr>
+                    <th>No. Cuenta</th>
+                    <th>Saldo actual</th>
+                    <th>Accion</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.oCuentaAhorro)
+                {
+                <tr>
+                    <td type="hidden">@Html.DisplayFor(m => item.id_cuenta)</td>
+                    <td>@Html.DisplayFor(m => item.cuenta)</td>
+                    <td>@Html.DisplayFor(m => item.saldo_actual)</td>
+                    <td>
+                        <a asp-route-id="@item.id_cuenta" asp-page="/Cliente/GestionarCuenta">Información</a>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No hay datos</p>
+    }
+</div>
